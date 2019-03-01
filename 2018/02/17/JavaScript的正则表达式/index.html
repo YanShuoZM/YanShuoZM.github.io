@@ -4,20 +4,24 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
   
-    <title>Hexo</title>
+    <title>JavaScript的正则表达式 | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="John Doe">
     
 
     
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+    <meta name="description" content="正则表达式简介什么是正则表达式​    正则表达式：用于匹配规律规则的表达式，正则表达式最初是科学家对人类神经系统的工作原理的早期研究，现在在编程语言中有广泛的应用。正则表通常被用来检索、替换那些符合某个模式(规则)的文本。    正则表达式是对字符串操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript的正则表达式">
+<meta property="og:url" content="http://yoursite.com/2018/02/17/JavaScript的正则表达式/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="正则表达式简介什么是正则表达式​    正则表达式：用于匹配规律规则的表达式，正则表达式最初是科学家对人类神经系统的工作原理的早期研究，现在在编程语言中有广泛的应用。正则表通常被用来检索、替换那些符合某个模式(规则)的文本。    正则表达式是对字符串操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-01T02:23:57.601Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="JavaScript的正则表达式">
+<meta name="twitter:description" content="正则表达式简介什么是正则表达式​    正则表达式：用于匹配规律规则的表达式，正则表达式最初是科学家对人类神经系统的工作原理的早期研究，现在在编程语言中有广泛的应用。正则表通常被用来检索、替换那些符合某个模式(规则)的文本。    正则表达式是对字符串操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -71,110 +75,10 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2019/03/01/CSS3中的动画-animationon/" title="CSS3中的动画--&gt;animationon" itemprop="url">CSS3中的动画--&gt;animationon</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="John Doe" target="_blank" itemprop="author">John Doe</a>
-		
-  </p><p class="article-time">
-    <time datetime="2019-03-01T02:33:00.000Z" itemprop="datePublished"> Published 2019-03-01</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2019/03/01/JavaScript的原型链/" title="JavaScript的原型链" itemprop="url">JavaScript的原型链</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="John Doe" target="_blank" itemprop="author">John Doe</a>
-		
-  </p><p class="article-time">
-    <time datetime="2019-03-01T02:11:15.000Z" itemprop="datePublished"> Published 2019-03-01</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
   <h1 itemprop="name">
     
       <a href="/2018/02/17/JavaScript的正则表达式/" title="JavaScript的正则表达式" itemprop="url">JavaScript的正则表达式</a>
@@ -188,9 +92,16 @@
     
   </p>
 </header>
-    <div class="article-content">
-        
-        <h2 id="正则表达式简介"><a href="#正则表达式简介" class="headerlink" title="正则表达式简介"></a>正则表达式简介</h2><h3 id="什么是正则表达式"><a href="#什么是正则表达式" class="headerlink" title="什么是正则表达式"></a>什么是正则表达式</h3><p>​    正则表达式：用于匹配规律规则的表达式，正则表达式最初是科学家对人类神经系统的工作原理的早期研究，现在在编程语言中有广泛的应用。正则表通常被用来检索、替换那些符合某个模式(规则)的文本。<br>    正则表达式是对字符串操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。</p>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#正则表达式简介"><span class="toc-number">1.</span> <span class="toc-text">正则表达式简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是正则表达式"><span class="toc-number">1.1.</span> <span class="toc-text">什么是正则表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则表达式的作用"><span class="toc-number">1.2.</span> <span class="toc-text">正则表达式的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则表达式的特点"><span class="toc-number">1.3.</span> <span class="toc-text">正则表达式的特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则表达式的测试"><span class="toc-number">1.4.</span> <span class="toc-text">正则表达式的测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则表达式的组成"><span class="toc-number">1.5.</span> <span class="toc-text">正则表达式的组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#元字符串"><span class="toc-number">1.6.</span> <span class="toc-text">元字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#常用元字符串"><span class="toc-number">1.6.1.</span> <span class="toc-text">常用元字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#限定符"><span class="toc-number">1.6.2.</span> <span class="toc-text">限定符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#其它"><span class="toc-number">1.6.3.</span> <span class="toc-text">其它</span></a></li></ol></li></ol></li></ol>
+		
+		</div>
+		
+		<h2 id="正则表达式简介"><a href="#正则表达式简介" class="headerlink" title="正则表达式简介"></a>正则表达式简介</h2><h3 id="什么是正则表达式"><a href="#什么是正则表达式" class="headerlink" title="什么是正则表达式"></a>什么是正则表达式</h3><p>​    正则表达式：用于匹配规律规则的表达式，正则表达式最初是科学家对人类神经系统的工作原理的早期研究，现在在编程语言中有广泛的应用。正则表通常被用来检索、替换那些符合某个模式(规则)的文本。<br>    正则表达式是对字符串操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。</p>
 <h3 id="正则表达式的作用"><a href="#正则表达式的作用" class="headerlink" title="正则表达式的作用"></a>正则表达式的作用</h3><ol>
 <li>给定的字符串是否符合正则表达式的过滤逻辑(匹配)</li>
 <li>可以通过正则表达式，从字符串中获取我们想要的特定部分(提取)</li>
@@ -310,14 +221,9 @@
 </tbody>
 </table>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//限定符:限定前面的表达式出现的次数</span></span><br><span class="line">*    表示的是:前面的表达式出现了<span class="number">0</span>次到多次</span><br><span class="line">[a-z][<span class="number">0</span><span class="number">-9</span>]*  小写字母中的任意一个,后面是要么是没有数字的,要么是多个数字的</span><br><span class="line"></span><br><span class="line">+    表示的是:前面的表达式出现了<span class="number">1</span>次到多次</span><br><span class="line">[a-z][<span class="number">9</span>]+    小写字母一个后面最少一个<span class="number">9</span>,或者多个<span class="number">9</span></span><br><span class="line"></span><br><span class="line">?    表示的是:前面的表达式出现了<span class="number">0</span>次到<span class="number">1</span>次,最少是<span class="number">0</span>次,最多<span class="number">1</span>次 。另一个含义:阻止贪婪模式</span><br><span class="line">[<span class="number">4</span>][a-z]?    <span class="number">4</span>后面可以出现a~z，也可以没有</span><br><span class="line"></span><br><span class="line">n&#123;<span class="number">0</span>,&#125; 表示的是n出现了<span class="number">0</span>次到多次,和*一样的</span><br><span class="line">n&#123;<span class="number">1</span>,&#125; 表示的是n出现了<span class="number">1</span>次到多次,和 +一样的</span><br><span class="line">n&#123;<span class="number">0</span>,<span class="number">1</span>&#125; 表示的是n出现了<span class="number">0</span>次到<span class="number">1</span>次,和 ?一样的</span><br><span class="line">n&#123;<span class="number">5</span>,<span class="number">10</span>&#125; 表示的是前面的n出现了<span class="number">5</span>次到<span class="number">10</span>次</span><br><span class="line">n&#123;<span class="number">4</span>&#125;  表示n出现了<span class="number">4</span>次</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span><span class="number">-7</span>] 表示的是<span class="number">1</span>到<span class="number">7</span>之间的任意的一个数字</span><br><span class="line">[a-z] 表示的是:所有的小写的字母中的任意的一个</span><br><span class="line">[A-Z] 表示的是:所有的大写的字母中的任意的一个</span><br><span class="line">[a-zA-Z] 表示的是:所有的字母的任意的一个</span><br><span class="line">[<span class="number">0</span><span class="number">-9</span>a-zA-Z] 表示的是: 所有的数字或者是字母中的一个</span><br><span class="line">[\u4e00-\u9fa5]  匹配汉字</span><br><span class="line"></span><br><span class="line">^ 表示的是以什么开始,或者是取非(取反) </span><br><span class="line">^[<span class="number">0</span><span class="number">-9</span>] 以数字开头</span><br><span class="line">^[a-z] 以小写字母开始</span><br><span class="line">[^<span class="number">0</span><span class="number">-9</span>] 取反,非数字</span><br><span class="line">[^a-z] 非小写字母</span><br><span class="line">[^<span class="number">0</span><span class="number">-9</span>a-zA-Z_] 不再<span class="number">0</span>到<span class="number">9</span> a到z A到Z之间</span><br><span class="line"></span><br><span class="line">$ 表示的是以什么结束   [<span class="number">0</span><span class="number">-9</span>][a-z]$  必须以小写字母结束</span><br></pre></td></tr></table></figure>
-<h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">\  转义符</span><br><span class="line">|  或者。选择两者中的一个。注意|将左右两边分为两部分，而不管左右两边有多长多乱。</span><br><span class="line">        [0-9]|[a-z] 表示的是要么是一个数字,要么是一个小写的字母</span><br><span class="line">() 分组。[0-9]|([a-z])|[A-Z]         gr(a|e)y匹配gray和grey</span><br><span class="line">        ([0-9])([1-5])([a-z]) 三组, 从最左边开始计算</span><br></pre></td></tr></table></figure>
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
+<h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">\  转义符</span><br><span class="line">|  或者。选择两者中的一个。注意|将左右两边分为两部分，而不管左右两边有多长多乱。</span><br><span class="line">        [0-9]|[a-z] 表示的是要么是一个数字,要么是一个小写的字母</span><br><span class="line">() 分组。[0-9]|([a-z])|[A-Z]         gr(a|e)y匹配gray和grey</span><br><span class="line">        ([0-9])([1-5])([a-z]) 三组, 从最左边开始计算</span><br></pre></td></tr></table></figure>  
+	</div>
+		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 
@@ -325,79 +231,53 @@
 
 
 
-
-<div class="comments-count">
+	<div class="article-share" id="share">
 	
-</div>
+	  <div data-url="http://yoursite.com/2018/02/17/JavaScript的正则表达式/" data-title="JavaScript的正则表达式 | Hexo" data-tsina class="share clearfix">
+	  </div>
+	
+	</div>
+
 
 </footer>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2018/01/28/我的博客开篇记/" title="我的博客开篇记" itemprop="url">我的博客开篇记</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="John Doe" target="_blank" itemprop="author">John Doe</a>
-		
-  </p><p class="article-time">
-    <time datetime="2018-01-28T13:34:50.000Z" itemprop="datePublished"> Published 2018-01-28</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="子冉与陶的博客开篇记"><a href="#子冉与陶的博客开篇记" class="headerlink" title="子冉与陶的博客开篇记"></a>子冉与陶的博客开篇记</h1><p>​       花费了一天的时间，终于把博客给搭建出来，殊为不易啊。从今天开始准备每周写至少一篇博客，来记录自己的前端学习之路，希望能够学有所成，不负年少。</p>
-<p>​        加油吧，少年！</p>
-<p>​        座右铭：</p>
- <h1 style="color:green">  生如夏花之绚烂</h1>
-
-<p>​                                                   </p><h1 style="color:yellow"> 死如秋叶之精美</h1><p></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
+   	       
+	</article>
 	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev">
+ <a href="/2019/03/01/JavaScript的原型链/" title="JavaScript的原型链">
+  <strong>上一篇：</strong><br>
+  <span>
+  JavaScript的原型链</span>
+</a>
 </div>
 
-</footer>
 
-
-    </article>
-
-
-
-
-
-
-
+<div class="next">
+<a href="/2018/01/28/我的博客开篇记/" title="我的博客开篇记">
+ <strong>下一篇：</strong><br> 
+ <span>我的博客开篇记
+</span>
+</a>
 </div>
+
+</nav>
+
+	
+
+
+
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#正则表达式简介"><span class="toc-number">1.</span> <span class="toc-text">正则表达式简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是正则表达式"><span class="toc-number">1.1.</span> <span class="toc-text">什么是正则表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则表达式的作用"><span class="toc-number">1.2.</span> <span class="toc-text">正则表达式的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则表达式的特点"><span class="toc-number">1.3.</span> <span class="toc-text">正则表达式的特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则表达式的测试"><span class="toc-number">1.4.</span> <span class="toc-text">正则表达式的测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则表达式的组成"><span class="toc-number">1.5.</span> <span class="toc-text">正则表达式的组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#元字符串"><span class="toc-number">1.6.</span> <span class="toc-text">元字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#常用元字符串"><span class="toc-number">1.6.1.</span> <span class="toc-text">常用元字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#限定符"><span class="toc-number">1.6.2.</span> <span class="toc-text">限定符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#其它"><span class="toc-number">1.6.3.</span> <span class="toc-text">其它</span></a></li></ol></li></ol></li></ol>
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
@@ -528,12 +408,89 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
 
 
 
@@ -606,4 +563,4 @@ var _hmt = _hmt || [];
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>
