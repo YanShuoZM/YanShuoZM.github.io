@@ -1,0 +1,654 @@
+
+ <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  
+    <title>JavaScript的基础知识总结 | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="John Doe">
+    
+
+    
+    <meta name="description" content="那些你不得不知道的JavaScript知识JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。 1.js中的数据类型undefined：用var声明过，却没有赋值的 null：表示空的引用 Boolean：布尔类型，true/false Number：数值类型，包括整型和浮点型 Object：对象类型 2、javaScript由核心语法ECMAScript">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript的基础知识总结">
+<meta property="og:url" content="http://yoursite.com/2018/02/03/JavaScript的基础知识总结/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="那些你不得不知道的JavaScript知识JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。 1.js中的数据类型undefined：用var声明过，却没有赋值的 null：表示空的引用 Boolean：布尔类型，true/false Number：数值类型，包括整型和浮点型 Object：对象类型 2、javaScript由核心语法ECMAScript">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-01T03:12:28.814Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript的基础知识总结">
+<meta name="twitter:description" content="那些你不得不知道的JavaScript知识JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。 1.js中的数据类型undefined：用var声明过，却没有赋值的 null：表示空的引用 Boolean：布尔类型，true/false Number：数值类型，包括整型和浮点型 Object：对象类型 2、javaScript由核心语法ECMAScript">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Hexo" title="Hexo"></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Hexo">Hexo</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search">
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</ul></nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/02/03/JavaScript的基础知识总结/" title="JavaScript的基础知识总结" itemprop="url">JavaScript的基础知识总结</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="John Doe" target="_blank" itemprop="author">John Doe</a>
+		
+  </p><p class="article-time">
+    <time datetime="2018-02-03T01:50:52.000Z" itemprop="datePublished"> Published 2018-02-03</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#那些你不得不知道的JavaScript知识"><span class="toc-number">1.</span> <span class="toc-text">那些你不得不知道的JavaScript知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-js中的数据类型"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">1.js中的数据类型</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="那些你不得不知道的JavaScript知识"><a href="#那些你不得不知道的JavaScript知识" class="headerlink" title="那些你不得不知道的JavaScript知识"></a>那些你不得不知道的JavaScript知识</h1><p>JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。</p>
+<h4 id="1-js中的数据类型"><a href="#1-js中的数据类型" class="headerlink" title="1.js中的数据类型"></a>1.js中的数据类型</h4><p>undefined：用var声明过，却没有赋值的</p>
+<p>null：表示空的引用</p>
+<p>Boolean：布尔类型，true/false</p>
+<p>Number：数值类型，包括整型和浮点型</p>
+<p>Object：对象类型</p>
+<p><strong>2、javaScript由核心语法ECMAScript、浏览器对象模型(BOM) 主要用于管理窗口与窗口之间的通讯，因此其核心对象是window、文档对象模型(DOM)三部分组成.</strong></p>
+<p><strong>3、网页中引入javaScript三种方式:</strong></p>
+<p>  1.使用<script></script>标签内部样式</p>
+<p>  2.使用外部js文件</p>
+<p>  3.直接在HTML标签中的行内样式。</p>
+<p><strong>4.javaScript的作用</strong></p>
+<p>1.实现页面表单验证</p>
+<p>2.实现页面交互特效</p>
+<p><strong>5.javaScript的特点</strong></p>
+<p>  1.被设计用来向Html页面添加交互行为</p>
+<p>  2.是一种英特网上最流行的脚本语言</p>
+<p>  3.一般用于编写客户端脚本</p>
+<p>  4．是一种解释性语言</p>
+<p><strong>6.引入javaScript的方式</strong></p>
+<p>   1.使用<script>标签直接嵌入网页</p>
+<p>   2.使用外部js文件</p>
+<p><strong>Js中String对象常用的方法：</strong></p>
+<ol>
+<li>toString(包前不包后),2.toLowerCase();toUpperCase();</li>
+<li>charAt(index);返回在指定位置的字符，indexOf(str,index);指定字符串中首次出现的位置;split(str);将字符串分割为字符串数组</li>
+</ol>
+<p>在javaScript中条件语句Switch(){}可以接字符串；</p>
+<p>alert(“提示信息”)；</p>
+<p>   var isOk=confirm(“确认框“);//如果确认返回true,否则返回false</p>
+<p>   prompt();prompt(“提示信息”，“输入框默认信息”);</p>
+<p>prompt(“请输入姓名”)</p>
+<p>   close();</p>
+<p>   open();</p>
+<p>   setTimeout();在指定毫秒之后调用某个函数</p>
+<p>   setInterval();在指定周期毫秒来调用某个函数</p>
+<p>window.open();</p>
+<p><strong>7.Js语法：</strong></p>
+<p>1.区分大小写</p>
+<p>2.注意变量，函数等命名规范</p>
+<p>3.每行代码以分号结束</p>
+<p><strong>Js中的函数：</strong></p>
+<p><strong>1.系统函数</strong> </p>
+<p>   ParseInt();转换为整数  45.9a转换为45；a6转换返回为NaN(Not a Number)</p>
+<p>   isNaN(判断是不是数字)</p>
+<p>   typeof(var);判断是什么数据类型</p>
+<p>   eval(“5+2”);计算表达式值</p>
+<p><strong>2.自定义函数</strong></p>
+<p> Function 函数名(){javaScript代码}</p>
+<p> Function 函数名(参数1，参数2){javaScript代码  return 返回值(可选)}</p>
+<p><strong>Js中函数的调用:</strong></p>
+<ol>
+<li>事件名=“函数名(传递的参数值)“;</li>
+<li>函数名(传递的参数值);</li>
+</ol>
+<p>匿名函数:</p>
+<ol>
+<li>匿名函数的声明：</li>
+</ol>
+<p>Var 变量名=function(参数){  函数体  return 返回值；} ;</p>
+<ol>
+<li>调用</li>
+</ol>
+<p>变量名(参数)</p>
+<p><strong>8.程序调用</strong></p>
+<p>  1.添加alert();方法 2.使用fireBug();方法</p>
+<p><strong>9.BOM概述：(Browser Object Model,浏览器对象模型)</strong></p>
+<p> 1.window对象的属性</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>History</td>
+<td>有关客户访问过的URL的信息</td>
+</tr>
+<tr>
+<td>Location</td>
+<td>有关当前URL的信息</td>
+</tr>
+<tr>
+<td>Screen</td>
+<td>有关客户端的屏幕和显示性能的信息</td>
+</tr>
+</tbody>
+</table>
+<p>Weindow对象常用的方法：prompt()confirm();setTimeout();setInterval();</p>
+<p>Window对象常用的事件：onload=”” onmouseover=””;onclick</p>
+<p>window.parent.location</p>
+<p><strong>2.History对象</strong></p>
+<p>  方法：back() ;forward();go();</p>
+<p><strong>3.Location对象提供当前页面的URL</strong></p>
+<p>  属性：host hostname href</p>
+<p>  方法:reload() replace();</p>
+<p><strong>4.Document对象</strong></p>
+<p>  属性:referrer属性判断是不是通过超链接访问的，不是返回null</p>
+<p><strong>10.javaScript中的对象，</strong></p>
+<p>   Date对象:</p>
+<p>  创建date对象发方法var date=new Date(MM DD ,YYYY,hh:mm:ss);</p>
+<p>​                     var  date=new Date(); date.getDay();</p>
+<p>​    Math对象：</p>
+<p>​     Ceil();对数进行向上取整，ceil(25.5)=26;</p>
+<p>​    Floor();向下取整，floor(25.5)=25;</p>
+<p>​     Math.round(25.5);在原数的加0.5后向下取整</p>
+<p><strong>11.Dom概述(文档对象模型)</strong></p>
+<p>  由CoreDom,XMLDom,HTML Dom组成；</p>
+<p><strong>12.创建数组</strong></p>
+<p>   Js中变量的声明:</p>
+<p>   Var 数组名称=new Array(size);</p>
+<ol>
+<li>先声明再赋值 fruit[0]=””</li>
+<li>声明同时赋值 var fruit=new Array(“apple”,”orange”);或 var fruit=new Array[“apple”,”orange”];</li>
+</ol>
+<p>读取1.使用for循环读取 2.使用for—in读取</p>
+<p>For(var x in fruit){document.write(fruit[x]+”<br/>”)}x为下标</p>
+<p>Fruit.sort();//排序 string str=fruit.join(“-”);//添加字符串后连接成一个字符串</p>
+<p>下拉列表Select对象：</p>
+<p><strong>13、 style 定位方面的样式</strong></p>
+<p>　　left top  position  z-index</p>
+<p>　　鼠标滚动距离：scorllTop:纵向距离</p>
+<p>　　　　　　　　　scorllLeft:横向距离</p>
+<p>　　鼠标滚动事假：onscorll</p>
+<p>Jquery对象与Dom对象的相互转换</p>
+<ol>
+<li>jquery对象转换为DOMD对象，jquery提供两种方法将jquery对象转换为DOM对象，即[index]和get(index),</li>
+</ol>
+<p>var $txtName=$(“#txtName”);//jquery对象</p>
+<p>var txtName=$txtName[0];//Dom对象</p>
+<p>alert(txtName.checked);//检测这个checkbox是否被选中</p>
+<p>通过get(index)方法得到对应的Dom对象</p>
+<p>Var $txtName=$(“#txtName”);//jquery对象</p>
+<p>Var txtName=$txtName.get(0);//Dom对象</p>
+<p>alert(txtName.checked);//检测这个checkbox是否被选中</p>
+<ol>
+<li>Dom对象转换为jQuery对象</li>
+</ol>
+<p>Var txtName=document.getElementById(“txtName”);//dom对象</p>
+<p>Var $txtName=$(txtName);//</p>
+<p>Dom中添加class属性使用obj.className=classname;</p>
+<p>​      添加类容使用obj.innerHtml=<input /></p>
+<p>Jquery中添加class属性使用obj.addClaa=classname;</p>
+<p>​      添加类容使用：obj.html=<input/>;</p>
+<p><strong>Jqurey中的五大选择器：</strong></p>
+<ol>
+<li>基本选择器 (#  .  标签)</li>
+<li>层次选择器(后代 &gt;子    +相邻    ~同辈)</li>
+<li>属性选择器(P[class=name])</li>
+<li>过滤选择器(“tr:even”)</li>
+<li>可见性选择器(“p:hidden” “p:viside”)</li>
+</ol>
+<p><strong>Jquery中的事件：</strong></p>
+<p>   Obj.bind(“clike”,function(){});</p>
+<p>obj.bind({mousever:function(){},{mouserout:function(){}}});</p>
+<p>  obj.unbind();</p>
+<p>obj.hover(function(){},function(){})方法集合onmouseOver和onmouseOut</p>
+<p>obj.toggle();</p>
+<p>$(“.tipsbox”).show();obj.hide();</p>
+<p>$(“img”).fadeIn(1000);</p>
+<p>$(“.txt”).slideUp(1000); obj.slideDown(1000);</p>
+<p>Obj.toggleClass(“class”);//集成了addClass和romoveClass</p>
+<p>$(this).val(“”);//清空文本内容</p>
+<p>Var $newNode=$(&lt;”<li>用jquery创建新元素节点</li>”&gt;);</p>
+<p><strong>JS中常用的一些小技巧：</strong></p>
+<p>1.使用!!操作符转换布尔值，对于变量可以使用！！varable做检测，只要变量的值为：0，null , “” , undefind或者NaN都将返回的是false反之的是true</p>
+<p>function Account(cash)<br>{<br>this.cash = cash;<br>this.hasMoney = !! cash;<br>}</p>
+<p>2.使用+将字符串转换为数字，只适用字符串数据，否则返回NaN</p>
+<p>function toNumber(strNum) {<br>return +strNum;<br>}</p>
+<p>适用于Date()返回时间戳数字：+new Date();</p>
+<p>3.在循环很大时候数字的长度先给去出来，var legth = array.legth;</p>
+<p>4.if(‘querySelector’ in document) {</p>
+<p>document.querySelector(“#id”);<br>} else {<br>document.getElementById(“id”);<br>}</p>
+<p>5.获取数组中的最后一个元素</p>
+<p>var array = [1,2,3,4,5];<br>array.slice(-1);</p>
+<p>6.字符串元素的替换</p>
+<p>var string = “john john”;<br>string.replace(/hn/, “ana”); //“joana john”<br>string.replace(/hn/g, “ana”); //“joana joana”</p>
+</script></p>  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/JavaScript/">JavaScript</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2018/02/03/JavaScript的基础知识总结/" data-title="JavaScript的基础知识总结 | Hexo" data-tsina class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev">
+ <a href="/2018/02/17/JavaScript的正则表达式/" title="正则表达式">
+  <strong>上一篇：</strong><br>
+  <span>
+  正则表达式</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2018/01/28/我的博客开篇记/" title="我的博客开篇记">
+ <strong>下一篇：</strong><br> 
+ <span>我的博客开篇记
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#那些你不得不知道的JavaScript知识"><span class="toc-number">1.</span> <span class="toc-text">那些你不得不知道的JavaScript知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-js中的数据类型"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">1.js中的数据类型</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CSS3/" title="CSS3">CSS3<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML-5/" title="HTML 5">HTML 5<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ajax/" title="ajax">ajax<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self" frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer">
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Larry Page in Google. <br>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font">
+		
+		<a href="http://weibo.com/2176287895" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2019 
+		
+		<a href="/about" target="_blank" title="John Doe">John Doe</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

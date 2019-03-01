@@ -4,24 +4,33 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
   
-    <title>我的博客开篇记 | Hexo</title>
+    <title>JavaScript的原型链 | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="John Doe">
     
 
     
-    <meta name="description" content="子冉与陶的博客开篇记​       花费了一天的时间，终于把博客给搭建出来，殊为不易啊。从今天开始准备每周写至少一篇博客，来记录自己的前端学习之路，希望能够学有所成，不负年少。 ​        加油吧，少年！ ​        座右铭：    生如夏花之绚烂  ​                                                    死如秋叶之精美">
+    <meta name="description" content="对于新人来说，JavaScript的原型是一个很让人头疼的事情，一来prototype容易与proto混淆，二来它们之间的各种指向实在有些复杂，其实市面上已经有非常多的文章在尝试说清楚，有一张所谓很经典的图，上面画了各种线条，一会连接这个一会连接那个，说实话我自己看得就非常头晕，更谈不上完全理解了。所以我自己也想尝试一下，看看能不能把原型中的重要知识点拆分出来，用最简单的图表形式说清楚。 我们知道">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的博客开篇记">
-<meta property="og:url" content="http://yoursite.com/2018/01/28/我的博客开篇记/index.html">
+<meta property="og:title" content="JavaScript的原型链">
+<meta property="og:url" content="http://yoursite.com/2018/03/15/JavaScript的原型链/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="子冉与陶的博客开篇记​       花费了一天的时间，终于把博客给搭建出来，殊为不易啊。从今天开始准备每周写至少一篇博客，来记录自己的前端学习之路，希望能够学有所成，不负年少。 ​        加油吧，少年！ ​        座右铭：    生如夏花之绚烂  ​                                                    死如秋叶之精美">
+<meta property="og:description" content="对于新人来说，JavaScript的原型是一个很让人头疼的事情，一来prototype容易与proto混淆，二来它们之间的各种指向实在有些复杂，其实市面上已经有非常多的文章在尝试说清楚，有一张所谓很经典的图，上面画了各种线条，一会连接这个一会连接那个，说实话我自己看得就非常头晕，更谈不上完全理解了。所以我自己也想尝试一下，看看能不能把原型中的重要知识点拆分出来，用最简单的图表形式说清楚。 我们知道">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-28T13:43:49.013Z">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/787416/201603/787416-20160323103557261-114570044.png">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/787416/201603/787416-20160323103622089-1134417169.png">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/787416/201603/787416-20160322110905589-2039017350.png">
+<meta property="og:updated_time" content="2019-03-01T03:12:40.243Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的博客开篇记">
-<meta name="twitter:description" content="子冉与陶的博客开篇记​       花费了一天的时间，终于把博客给搭建出来，殊为不易啊。从今天开始准备每周写至少一篇博客，来记录自己的前端学习之路，希望能够学有所成，不负年少。 ​        加油吧，少年！ ​        座右铭：    生如夏花之绚烂  ​                                                    死如秋叶之精美">
+<meta name="twitter:title" content="JavaScript的原型链">
+<meta name="twitter:description" content="对于新人来说，JavaScript的原型是一个很让人头疼的事情，一来prototype容易与proto混淆，二来它们之间的各种指向实在有些复杂，其实市面上已经有非常多的文章在尝试说清楚，有一张所谓很经典的图，上面画了各种线条，一会连接这个一会连接那个，说实话我自己看得就非常头晕，更谈不上完全理解了。所以我自己也想尝试一下，看看能不能把原型中的重要知识点拆分出来，用最简单的图表形式说清楚。 我们知道">
+<meta name="twitter:image" content="https://images2015.cnblogs.com/blog/787416/201603/787416-20160323103557261-114570044.png">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -81,14 +90,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/01/28/我的博客开篇记/" title="我的博客开篇记" itemprop="url">我的博客开篇记</a>
+      <a href="/2018/03/15/JavaScript的原型链/" title="JavaScript的原型链" itemprop="url">JavaScript的原型链</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="John Doe" target="_blank" itemprop="author">John Doe</a>
 		
   </p><p class="article-time">
-    <time datetime="2018-01-28T13:34:50.000Z" itemprop="datePublished"> Published 2018-01-28</time>
+    <time datetime="2018-03-15T02:11:15.000Z" itemprop="datePublished"> Published 2018-03-15</time>
     
   </p>
 </header>
@@ -97,21 +106,32 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#子冉与陶的博客开篇记"><span class="toc-number">1.</span> <span class="toc-text">子冉与陶的博客开篇记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">  生如夏花之绚烂</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text"> 死如秋叶之精美</span></a></li></ol>
+			
 		
 		</div>
 		
-		<h1 id="子冉与陶的博客开篇记"><a href="#子冉与陶的博客开篇记" class="headerlink" title="子冉与陶的博客开篇记"></a>子冉与陶的博客开篇记</h1><p>​       花费了一天的时间，终于把博客给搭建出来，殊为不易啊。从今天开始准备每周写至少一篇博客，来记录自己的前端学习之路，希望能够学有所成，不负年少。</p>
-<p>​        加油吧，少年！</p>
-<p>​        座右铭：</p>
- <h1 style="color:green">  生如夏花之绚烂</h1>
-
-<p>​                                                   </p><h1 style="color:yellow"> 死如秋叶之精美</h1><p></p>
-  
+		<p>对于新人来说，JavaScript的原型是一个很让人头疼的事情，一来prototype容易与<strong>proto</strong>混淆，二来它们之间的各种指向实在有些复杂，其实市面上已经有非常多的文章在尝试说清楚，有一张所谓很经典的图，上面画了各种线条，一会连接这个一会连接那个，说实话我自己看得就非常头晕，更谈不上完全理解了。所以我自己也想尝试一下，看看能不能把原型中的重要知识点拆分出来，用最简单的图表形式说清楚。</p>
+<p>我们知道原型是一个对象，其他对象可以通过它实现属性继承。但是尼玛除了prototype，又有一个<strong>proto</strong>是用来干嘛的？长那么像，让人怎么区分呢？它们都指向谁，那么混乱怎么记啊？原型链又是什么鬼？相信不少初学者甚至有一定经验的老鸟都不一定能完全说清楚，下面用三张简单的图，配合一些示例代码来理解一下。</p>
+<p><strong>一、prototype和<strong>proto</strong>的区别</strong></p>
+<p><img src="https://images2015.cnblogs.com/blog/787416/201603/787416-20160323103557261-114570044.png" alt="img"></p>
+<p><a href="javascript:void(0" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>;)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;&#125;;</span><br><span class="line">console.log(a.prototype);  //undefined</span><br><span class="line">console.log(a.__proto__);  //Object &#123;&#125;</span><br><span class="line"></span><br><span class="line">var b = function()&#123;&#125;</span><br><span class="line">console.log(b.prototype);  //b &#123;&#125;</span><br><span class="line">console.log(b.__proto__);  //function() &#123;&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="javascript:void(0" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>;)</p>
+<p><img src="https://images2015.cnblogs.com/blog/787416/201603/787416-20160323103622089-1134417169.png" alt="img"></p>
+<p><a href="javascript:void(0" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>;)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/*1、字面量方式*/</span><br><span class="line">var a = &#123;&#125;;</span><br><span class="line">console.log(a.__proto__);  //Object &#123;&#125;</span><br><span class="line"></span><br><span class="line">console.log(a.__proto__ === a.constructor.prototype); //true</span><br><span class="line"></span><br><span class="line">/*2、构造器方式*/</span><br><span class="line">var A = function()&#123;&#125;;</span><br><span class="line">var a = new A();</span><br><span class="line">console.log(a.__proto__); //A &#123;&#125;</span><br><span class="line"></span><br><span class="line">console.log(a.__proto__ === a.constructor.prototype); //true</span><br><span class="line"></span><br><span class="line">/*3、Object.create()方式*/</span><br><span class="line">var a1 = &#123;a:1&#125;</span><br><span class="line">var a2 = Object.create(a1);</span><br><span class="line">console.log(a2.__proto__); //Object &#123;a: 1&#125;</span><br><span class="line"></span><br><span class="line">console.log(a.__proto__ === a.constructor.prototype); //false（此处即为图1中的例外情况）</span><br></pre></td></tr></table></figure>
+<p><a href="javascript:void(0" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>;)</p>
+<p> <img src="https://images2015.cnblogs.com/blog/787416/201603/787416-20160322110905589-2039017350.png" alt="什么是原型链？"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var A = function()&#123;&#125;;</span><br><span class="line">var a = new A();</span><br><span class="line">console.log(a.__proto__); //A &#123;&#125;（即构造器function A 的原型对象）</span><br><span class="line">console.log(a.__proto__.__proto__); //Object &#123;&#125;（即构造器function Object 的原型对象）</span><br><span class="line">console.log(a.__proto__.__proto__.__proto__); //null</span><br></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/JavaScript/">JavaScript</a>
+  </div>
 
 </div>
 
@@ -119,7 +139,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/01/28/我的博客开篇记/" data-title="我的博客开篇记 | Hexo" data-tsina class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/03/15/JavaScript的原型链/" data-title="JavaScript的原型链 | Hexo" data-tsina class="share clearfix">
 	  </div>
 	
 	</div>
@@ -133,13 +153,21 @@
 <nav class="article-nav clearfix">
  
  <div class="prev">
- <a href="/2018/02/03/JavaScript的基础知识总结/" title="JavaScript的基础知识总结">
+ <a href="/2018/03/18/CSS3中的伸缩布局/" title="CSS3中的伸缩布局">
   <strong>上一篇：</strong><br>
   <span>
-  JavaScript的基础知识总结</span>
+  CSS3中的伸缩布局</span>
 </a>
 </div>
 
+
+<div class="next">
+<a href="/2018/03/04/CSS3中的动画-animationon/" title="CSS3中的动画--&gt;animationon">
+ <strong>下一篇：</strong><br> 
+ <span>CSS3中的动画--&gt;animationon
+</span>
+</a>
+</div>
 
 </nav>
 
@@ -153,7 +181,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#子冉与陶的博客开篇记"><span class="toc-number">1.</span> <span class="toc-text">子冉与陶的博客开篇记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">  生如夏花之绚烂</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text"> 死如秋叶之精美</span></a></li></ol>
+ 
  
   </div>
 

@@ -1,0 +1,508 @@
+
+ <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  
+    <title>ajaxd的初体验 | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="John Doe">
+    
+
+    
+    <meta name="description" content="1.AJAX概述 Web 程序最初的目的就是将信息（数据）放到公共的服务器，让所有网络用户都可以通过浏览器访问。   ​     1234567//1.在此之前，我们可以通过以下几种方式让浏览器发出对服务端的请求，获得服务端的数据：	地址栏输入地址，回车，刷新	特定元素的 href 或 src 属性	表单提交    a标签//2.这些方案都是我们无法通过或者很难通过代码的方式进行编程（对服务端发出">
+<meta name="keywords" content="ajax">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ajaxd的初体验">
+<meta property="og:url" content="http://yoursite.com/2018/03/22/ajax的初体验/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.AJAX概述 Web 程序最初的目的就是将信息（数据）放到公共的服务器，让所有网络用户都可以通过浏览器访问。   ​     1234567//1.在此之前，我们可以通过以下几种方式让浏览器发出对服务端的请求，获得服务端的数据：	地址栏输入地址，回车，刷新	特定元素的 href 或 src 属性	表单提交    a标签//2.这些方案都是我们无法通过或者很难通过代码的方式进行编程（对服务端发出">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="f:/%E8%AF%BE%E4%BB%B6/ajax%E7%AC%94%E8%AE%B0/media/a1.png">
+<meta property="og:image" content="f:/%E8%AF%BE%E4%BB%B6/ajax%E7%AC%94%E8%AE%B0/media/d2.png">
+<meta property="og:image" content="f:/%E8%AF%BE%E4%BB%B6/ajax%E7%AC%94%E8%AE%B0/media/a2.png">
+<meta property="og:updated_time" content="2019-03-01T03:11:48.384Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ajaxd的初体验">
+<meta name="twitter:description" content="1.AJAX概述 Web 程序最初的目的就是将信息（数据）放到公共的服务器，让所有网络用户都可以通过浏览器访问。   ​     1234567//1.在此之前，我们可以通过以下几种方式让浏览器发出对服务端的请求，获得服务端的数据：	地址栏输入地址，回车，刷新	特定元素的 href 或 src 属性	表单提交    a标签//2.这些方案都是我们无法通过或者很难通过代码的方式进行编程（对服务端发出">
+<meta name="twitter:image" content="f:/%E8%AF%BE%E4%BB%B6/ajax%E7%AC%94%E8%AE%B0/media/a1.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Hexo" title="Hexo"></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Hexo">Hexo</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search">
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</ul></nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/03/22/ajax的初体验/" title="ajaxd的初体验" itemprop="url">ajaxd的初体验</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="John Doe" target="_blank" itemprop="author">John Doe</a>
+		
+  </p><p class="article-time">
+    <time datetime="2018-03-22T02:41:25.000Z" itemprop="datePublished"> Published 2018-03-22</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-AJAX概述"><span class="toc-number">1.</span> <span class="toc-text">1.AJAX概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-快速上手"><span class="toc-number">2.</span> <span class="toc-text">2.快速上手</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Ajax核心概念"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 Ajax核心概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-快速使用"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 快速使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-readyState-状态描述说明"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 readyState 状态描述说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-时间轴"><span class="toc-number">2.4.</span> <span class="toc-text">2.4. 时间轴</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-遵循-HTTP"><span class="toc-number">2.5.</span> <span class="toc-text">2.5. 遵循 HTTP</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-具体用法"><span class="toc-number">3.</span> <span class="toc-text">3.具体用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-GET-请求返回用户数据"><span class="toc-number">3.1.</span> <span class="toc-text">3.1. GET 请求返回用户数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-POST-请求登录案例"><span class="toc-number">3.2.</span> <span class="toc-text">3.2. POST 请求登录案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-同步与异步"><span class="toc-number">3.3.</span> <span class="toc-text">3.3. 同步与异步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-响应数据格式"><span class="toc-number">3.4.</span> <span class="toc-text">3.4. 响应数据格式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-1-XML介绍"><span class="toc-number">3.4.1.</span> <span class="toc-text">3.4.1. XML介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-2-返回XML"><span class="toc-number">3.4.2.</span> <span class="toc-text">3.4.2 返回XML</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-3-返回JSON"><span class="toc-number">3.4.3.</span> <span class="toc-text">3.4.3.返回JSON</span></a></li></ol></li></ol></li></ol>
+		
+		</div>
+		
+		<h2 id="1-AJAX概述"><a href="#1-AJAX概述" class="headerlink" title="1.AJAX概述"></a>1.AJAX概述</h2><blockquote>
+<p>Web 程序最初的目的就是将信息（数据）放到公共的服务器，让所有网络用户都可以通过浏览器访问。</p>
+</blockquote>
+<p><img src="F:/%E8%AF%BE%E4%BB%B6/ajax%E7%AC%94%E8%AE%B0/media/a1.png" alt></p>
+<p>​    </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.在此之前，我们可以通过以下几种方式让浏览器发出对服务端的请求，获得服务端的数据：</span></span><br><span class="line">	地址栏输入地址，回车，刷新</span><br><span class="line">	特定元素的 href 或 src 属性</span><br><span class="line">	表单提交</span><br><span class="line">    a标签</span><br><span class="line"><span class="comment">//2.这些方案都是我们无法通过或者很难通过代码的方式进行编程（对服务端发出请求并且接受服务端返回的响应）</span></span><br><span class="line"><span class="comment">//3.如果我们可以通过JavaScript直接发送网络请求，那么Web的可能就会更多，随之能够实现的功能也会更多，至少不再是“单机游戏”。</span></span><br></pre></td></tr></table></figure>
+<p>​    AJAX（Asynchronous JavaScript and XML），是指使用JavaScript和XML进行<strong>异步刷新局部网页的技术</strong>。不是一种新的编程语言，是基于JavaScript、XML、HTML、CSS新用法。它使我们可以通过 JavaScript 直接获取服务端最新的内容而不必重新加载页面。让Web更能接近桌面应用的用户体验。</p>
+<p>​    说白了，AJAX 就是浏览器提供的一套 API，可以通过 JavaScript 调用，从而实现通过代码控制请求与响应。实现网络编程。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//同步(web1.0)：请求1--&gt;等待--&gt;响应1--&gt;请求2--&gt;等待--&gt;响应2…</span></span><br><span class="line"><span class="comment">//异步(web2.0): 请求1--&gt;请求2--&gt;请求3--&gt;响应1--&gt;响应2--&gt;响应3(局部刷新页面)</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-快速上手"><a href="#2-快速上手" class="headerlink" title="2.快速上手"></a>2.快速上手</h2><h3 id="2-1-Ajax核心概念"><a href="#2-1-Ajax核心概念" class="headerlink" title="2.1 Ajax核心概念"></a>2.1 Ajax核心概念</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.JavaScript：更新局部的网页</span></span><br><span class="line"><span class="comment">//2.XML：一般用于请求数据和响应数据的封装(一般现在用JSON多)</span></span><br><span class="line"><span class="comment">//3.XMLHttpRequest对象（浏览器的内置对象）</span></span><br><span class="line">	(非IE浏览器：XMLHttpRequest)</span><br><span class="line">	(IE7以后XMLHttpRequest   IE7之前:ActiveXObject) </span><br><span class="line"><span class="comment">//4.异步：发送请求后不等返回结果，由回调函数处理结果</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-2-快速使用"><a href="#2-2-快速使用" class="headerlink" title="2.2 快速使用"></a>2.2 快速使用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Ajax的常用方法和属性</span></span><br><span class="line"><span class="comment">//1 发送Ajax请求</span></span><br><span class="line">	open(method,url,<span class="keyword">async</span>) 与服务器建立连接(请求方式、请求url、是否需要异步)</span><br><span class="line">	send(content)  发送请求,content为请求参数 </span><br><span class="line">	setRequestHeader(header,value)  设置请求头</span><br><span class="line"></span><br><span class="line"><span class="comment">//2 请求回调</span></span><br><span class="line">	onreadystatechange：指定回调函数</span><br><span class="line">	readyState:  指XMLHttpRequest的状态信息  </span><br><span class="line">    status：HTTP的状态码   <span class="number">200</span>   <span class="number">403</span>(没有访问权限)   <span class="number">404</span>   <span class="number">500</span></span><br><span class="line">	responseText：获得响应的文本 </span><br><span class="line">	responseXML：获得响应的XML文档</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//案例：使用ajax获取时间</span></span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    <span class="comment">//1.获取Ajax核心对象</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">createAJAX</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">var</span> xmlhttp;</span><br><span class="line">        <span class="comment">//IE7+  Firefox chrome  Opera Safari</span></span><br><span class="line">        <span class="keyword">if</span>(window.XMLHttpRequest)&#123;</span><br><span class="line">            xmlhttp = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//IE5  IE6</span></span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            xmlhttp = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">     <span class="comment">//也可以这样写</span></span><br><span class="line">     <span class="comment">//var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//2. 获取一个 XMLHttpRequest 类型的对象 —— 相当于打开了一个浏览器</span></span><br><span class="line">	<span class="keyword">var</span> xhr = createAJAX();</span><br><span class="line">    <span class="comment">//3. 打开与一个网址之间的连接 —— 相当于在地址栏输入访问地址</span></span><br><span class="line">    xhr.open(<span class="string">'GET'</span>, <span class="string">'./time.php'</span>)</span><br><span class="line">    <span class="comment">//4. 通过连接发送一次请求 —— 相当于回车或者点击访问发送请求</span></span><br><span class="line">    xhr.send(<span class="keyword">null</span>)</span><br><span class="line">    <span class="comment">//5. 指定 xhr 状态变化事件处理函数 —— 相当于处理网页呈现后的操作</span></span><br><span class="line">    xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    	<span class="comment">//6.通过 xhr 的 readyState 判断此次请求的响应是否接收完成</span></span><br><span class="line">    	<span class="keyword">if</span> (this.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">       	 	<span class="comment">// 通过 xhr 的 responseText 获取到响应的响应体</span></span><br><span class="line">        	console.log(this);</span><br><span class="line">   		&#125;</span><br><span class="line">	&#125;	</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">    </span><br><span class="line"><span class="comment">//time.php</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> time();</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-readyState-状态描述说明"><a href="#2-3-readyState-状态描述说明" class="headerlink" title="2.3 readyState 状态描述说明"></a>2.3 readyState 状态描述说明</h3><p>​    由于 readystatechange 事件是在 xhr 对象状态变化时触发（不单是在得到响应时），也就意味着这个事件会被触发多次，所以我们有必要了解每一个状态值代表的含义：</p>
+<p><img src="F:/%E8%AF%BE%E4%BB%B6/ajax%E7%AC%94%E8%AE%B0/media/d2.png" alt></p>
+<h3 id="2-4-时间轴"><a href="#2-4-时间轴" class="headerlink" title="2.4. 时间轴"></a>2.4. 时间轴</h3><p><img src="F:/%E8%AF%BE%E4%BB%B6/ajax%E7%AC%94%E8%AE%B0/media/a2.png" alt></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">console.log(xhr.readyState)</span><br><span class="line"><span class="comment">// =&gt; 0</span></span><br><span class="line"><span class="comment">// 初始化 请求代理对象</span></span><br><span class="line">    </span><br><span class="line">xhr.open(<span class="string">'GET'</span>, <span class="string">'time.php'</span>)</span><br><span class="line">console.log(xhr.readyState)</span><br><span class="line"><span class="comment">// =&gt; 1</span></span><br><span class="line"><span class="comment">// open 方法已经调用，建立一个与服务端特定端口的连接</span></span><br><span class="line">    </span><br><span class="line">xhr.send()</span><br><span class="line">xhr.addEventListener(<span class="string">'readystatechange'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">switch</span> (this.readyState) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">            <span class="comment">// =&gt; 2</span></span><br><span class="line">            <span class="comment">// 已经接受到了响应报文的响应头</span></span><br><span class="line">            <span class="comment">// 可以拿到头</span></span><br><span class="line">            <span class="comment">// console.log(this.getAllResponseHeaders())</span></span><br><span class="line">            console.log(this.getResponseHeader(<span class="string">'server'</span>))</span><br><span class="line">            <span class="comment">// 但是还没有拿到体</span></span><br><span class="line">            console.log(this.responseText)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">            <span class="comment">// =&gt; 3</span></span><br><span class="line">            <span class="comment">// 正在下载响应报文的响应体，有可能响应体为空，也有可能不完整</span></span><br><span class="line">            <span class="comment">// 在这里处理响应体不保险（不可靠）</span></span><br><span class="line">            console.log(this.responseText)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">            <span class="comment">// =&gt; 4</span></span><br><span class="line">            <span class="comment">// 一切 OK （整个响应报文已经完整下载下来了）</span></span><br><span class="line">            <span class="comment">// 这里处理响应体</span></span><br><span class="line">            console.log(this.responseText)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>​    通过理解每一个状态值的含义得出一个结论：一般我们都是在 readyState 值为 4 时，执行响应的后续逻辑。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (this.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">		<span class="comment">// 后续逻辑......</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-5-遵循-HTTP"><a href="#2-5-遵循-HTTP" class="headerlink" title="2.5. 遵循 HTTP"></a>2.5. 遵循 HTTP</h3><p>​    本质上 XMLHttpRequest 就是 JavaScript 在 Web 平台中发送 HTTP 请求的手段，所以我们发送出去的请求仍然是HTTP 请求，同样符合 HTTP 约定的格式：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置请求报文的请求行</span></span><br><span class="line">xhr.open(<span class="string">'GET'</span>, <span class="string">'./time.php'</span>)</span><br><span class="line"><span class="comment">// 设置请求头</span></span><br><span class="line">xhr.setRequestHeader(<span class="string">'Accept'</span>, <span class="string">'text/plain'</span>)</span><br><span class="line"><span class="comment">// 设置请求体</span></span><br><span class="line">xhr.send(<span class="keyword">null</span>)</span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (this.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">		<span class="comment">// 获取响应状态码</span></span><br><span class="line">		console.log(this.status)</span><br><span class="line">		<span class="comment">// 获取响应状态描述</span></span><br><span class="line">		console.log(this.statusText)</span><br><span class="line">		<span class="comment">// 获取响应头信息</span></span><br><span class="line">		console.log(this.getResponseHeader(<span class="string">'Content‐Type'</span>)) <span class="comment">// 指定响应头</span></span><br><span class="line">		console.log(this.getAllResponseHeaders()) <span class="comment">// 全部响应头</span></span><br><span class="line">		<span class="comment">// 获取响应体</span></span><br><span class="line">		console.log(this.responseText) <span class="comment">// 文本形式</span></span><br><span class="line">		<span class="comment">//console.log(this.responseXML) // XML 形式，了解即可</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest</a></p>
+<h2 id="3-具体用法"><a href="#3-具体用法" class="headerlink" title="3.具体用法"></a>3.具体用法</h2><h3 id="3-1-GET-请求返回用户数据"><a href="#3-1-GET-请求返回用户数据" class="headerlink" title="3.1. GET 请求返回用户数据"></a>3.1. GET 请求返回用户数据</h3><p>​    通常在一次 GET 请求过程中，参数传递都是通过 URL 地址中的 ? 参数传递。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul id=<span class="string">"list"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">var</span> listElement = <span class="built_in">document</span>.getElementById(<span class="string">'list'</span>)</span><br><span class="line"><span class="comment">// 发送请求获取列表数据呈现在页面</span></span><br><span class="line"><span class="comment">// =======================================</span></span><br><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">'GET'</span>, <span class="string">'users.php'</span>);</span><br><span class="line">xhr.send();</span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.readyState !== <span class="number">4</span>) <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">var</span> data = <span class="built_in">JSON</span>.parse(<span class="keyword">this</span>.responseText)</span><br><span class="line">    <span class="comment">// data =&gt; 数据</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; data.length; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> liElement = <span class="built_in">document</span>.createElement(<span class="string">'li'</span>)</span><br><span class="line">        liElement.innerHTML = data[i].name</span><br><span class="line">        liElement.id = data[i].id</span><br><span class="line">        listElement.appendChild(liElement)</span><br><span class="line">        liElement.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="comment">// <span class="doctag">TODO:</span> 通过AJAX操作获取服务端对应数据的信息</span></span><br><span class="line">            <span class="comment">// 如何获取当前被点击元素对应的数据的ID</span></span><br><span class="line">            <span class="comment">// console.log(this.id)</span></span><br><span class="line">            <span class="keyword">var</span> xhr1 = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">            xhr1.open(<span class="string">'GET'</span>, <span class="string">'users.php?id='</span> + <span class="keyword">this</span>.id)</span><br><span class="line">            xhr1.send()</span><br><span class="line">            xhr1.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">this</span>.readyState !== <span class="number">4</span>) <span class="keyword">return</span></span><br><span class="line">                <span class="keyword">var</span> obj = <span class="built_in">JSON</span>.parse(<span class="keyword">this</span>.responseText)</span><br><span class="line">                alert(obj.age)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//users.php</span></span><br><span class="line">&lt;?php</span><br><span class="line">header(<span class="string">'Content-Type: application/json'</span>);</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 返回的响应就是一个 JSON 内容（返回的就是数据）</span></span><br><span class="line"><span class="comment"> * 对于返回数据的地址一般我们称之为接口（形式上是 Web 形式）</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">// `/users.php?id=1` =&gt; id 为 1 的用户信息</span></span><br><span class="line"></span><br><span class="line">$data = array(</span><br><span class="line">  array(</span><br><span class="line">    <span class="string">'id'</span> =&gt; <span class="number">1</span>,</span><br><span class="line">    <span class="string">'name'</span> =&gt; <span class="string">'张三'</span>,</span><br><span class="line">    <span class="string">'age'</span> =&gt; <span class="number">18</span></span><br><span class="line">  ),</span><br><span class="line">  array(</span><br><span class="line">    <span class="string">'id'</span> =&gt; <span class="number">2</span>,</span><br><span class="line">    <span class="string">'name'</span> =&gt; <span class="string">'李四'</span>,</span><br><span class="line">    <span class="string">'age'</span> =&gt; <span class="number">20</span></span><br><span class="line">  ),</span><br><span class="line">  array(</span><br><span class="line">    <span class="string">'id'</span> =&gt; <span class="number">3</span>,</span><br><span class="line">    <span class="string">'name'</span> =&gt; <span class="string">'二傻子'</span>,</span><br><span class="line">    <span class="string">'age'</span> =&gt; <span class="number">18</span></span><br><span class="line">  ),</span><br><span class="line">  array(</span><br><span class="line">    <span class="string">'id'</span> =&gt; <span class="number">4</span>,</span><br><span class="line">    <span class="string">'name'</span> =&gt; <span class="string">'三愣子'</span>,</span><br><span class="line">    <span class="string">'age'</span> =&gt; <span class="number">19</span></span><br><span class="line">  )</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (empty($_GET[<span class="string">'id'</span>])) &#123;</span><br><span class="line">  <span class="comment">// 没有 ID 获取全部</span></span><br><span class="line">  <span class="comment">// 因为 HTTP 中约定报文的内容就是字符串，而我们需要传递给客户端的信息是一个有结构的数据</span></span><br><span class="line">  <span class="comment">// 这种情况下我们一般采用 JSON 作为数据格式</span></span><br><span class="line">  $json = json_encode($data); <span class="comment">// =&gt; [&#123;"id":1,"name":"张三"&#125;,&#123;...&#125;]</span></span><br><span class="line">  echo $json;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">// 传递了 ID 只获取一条</span></span><br><span class="line">  foreach ($data <span class="keyword">as</span> $item) &#123;</span><br><span class="line">    <span class="keyword">if</span> ($item[<span class="string">'id'</span>] != $_GET[<span class="string">'id'</span>]) <span class="keyword">continue</span>;</span><br><span class="line">    $json = json_encode($item); <span class="comment">// =&gt; [&#123;"id":1,"name":"张三"&#125;,&#123;...&#125;]</span></span><br><span class="line">    echo $json;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-POST-请求登录案例"><a href="#3-2-POST-请求登录案例" class="headerlink" title="3.2. POST 请求登录案例"></a>3.2. POST 请求登录案例</h3><p>​    POST 请求过程中，都是采用请求体承载需要提交的数据。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//index.html</span></span><br><span class="line">&lt;style&gt;</span><br><span class="line">#loading &#123;</span><br><span class="line">    display: none;</span><br><span class="line">    position: fixed;</span><br><span class="line">    top: <span class="number">0</span>;</span><br><span class="line">    left: <span class="number">0</span>;</span><br><span class="line">    right: <span class="number">0</span>;</span><br><span class="line">    bottom: <span class="number">0</span>;</span><br><span class="line">    background-color: #555;</span><br><span class="line">    opacity: <span class="number">.5</span>;</span><br><span class="line">    text-align: center;</span><br><span class="line">    line-height: <span class="number">300</span>px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#loading::after &#123;</span><br><span class="line">    content: <span class="string">'加载中...'</span>;</span><br><span class="line">    color : #fff;</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/style&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;body&gt;</span></span><br><span class="line"><span class="regexp">  &lt;div id="loading"&gt;&lt;/</span>div&gt;</span><br><span class="line">  &lt;table border=<span class="string">"1"</span>&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">      &lt;td&gt;用户名&lt;<span class="regexp">/td&gt;</span></span><br><span class="line"><span class="regexp">      &lt;td&gt;&lt;input type="text" id="username"&gt;&lt;/</span>td&gt;</span><br><span class="line">    &lt;<span class="regexp">/tr&gt;</span></span><br><span class="line"><span class="regexp">    &lt;tr&gt;</span></span><br><span class="line"><span class="regexp">      &lt;td&gt;密码&lt;/</span>td&gt;</span><br><span class="line">      &lt;td&gt;<span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">id</span>=<span class="string">"password"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span></span><br><span class="line">    &lt;<span class="regexp">/tr&gt;</span></span><br><span class="line"><span class="regexp">    &lt;tr&gt;</span></span><br><span class="line"><span class="regexp">      &lt;td&gt;&lt;/</span>td&gt;</span><br><span class="line">      &lt;td&gt;<span class="xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"btn"</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span></span><br><span class="line">    &lt;<span class="regexp">/tr&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>table&gt;</span><br><span class="line">&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp">    </span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ 找一个合适的时机，做一件合适的事情</span></span><br><span class="line"><span class="regexp">var btn = document.getElementById('btn')</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ 1. 获取界面上的元素 value</span></span><br><span class="line"><span class="regexp">var txtUsername = document.getElementById('username')</span></span><br><span class="line"><span class="regexp">var txtPassword = document.getElementById('password')</span></span><br><span class="line"><span class="regexp">var loading = document.getElementById('loading')</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">btn.onclick = function () &#123;</span></span><br><span class="line"><span class="regexp">    loading.style.display = 'block'</span></span><br><span class="line"><span class="regexp">    var username = txtUsername.value</span></span><br><span class="line"><span class="regexp">    var password = txtPassword.value</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 2. 通过 XHR 发送一个 POST 请求</span></span><br><span class="line"><span class="regexp">    var xhr = new XMLHttpRequest()</span></span><br><span class="line"><span class="regexp">    xhr.open('POST', 'login.php')</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 设置请求的content-type</span></span><br><span class="line"><span class="regexp">    xhr.setRequestHeader('Content-Type', 'application/</span>x-www-form-urlencoded<span class="string">')</span></span><br><span class="line"><span class="string">    // xhr.send('</span>username=<span class="string">' + username + '</span>&amp;password=<span class="string">' + password)</span></span><br><span class="line"><span class="string">    xhr.send(`username=$&#123;username&#125;&amp;password=$&#123;password&#125;`)</span></span><br><span class="line"><span class="string">    // 3. 根据服务端的反馈 作出界面提示</span></span><br><span class="line"><span class="string">    xhr.onreadystatechange = function () &#123;</span></span><br><span class="line"><span class="string">        if (this.readyState !== 4) return</span></span><br><span class="line"><span class="string">        console.log(this.responseText)</span></span><br><span class="line"><span class="string">        loading.style.display = '</span>none<span class="string">'</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">//login.php</span></span><br><span class="line"><span class="string">&lt;?php</span></span><br><span class="line"><span class="string">// 接收用户提交的用户名密码</span></span><br><span class="line"><span class="string">if (empty($_POST['</span>username<span class="string">']) || empty($_POST['</span>password<span class="string">'])) &#123;</span></span><br><span class="line"><span class="string">  // echo ;</span></span><br><span class="line"><span class="string">  //exit退出当前脚本</span></span><br><span class="line"><span class="string">  exit('</span>请提交用户名和密码<span class="string">');</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">// 校验</span></span><br><span class="line"><span class="string">$username = $_POST['</span>username<span class="string">'];</span></span><br><span class="line"><span class="string">$password = $_POST['</span>password<span class="string">'];</span></span><br><span class="line"><span class="string">if ($username === '</span>admin<span class="string">' &amp;&amp; $password === '</span><span class="number">123</span><span class="string">') &#123;</span></span><br><span class="line"><span class="string">  exit('</span>恭喜你<span class="string">');</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">exit('</span>用户名或者密码错误<span class="string">');</span></span><br><span class="line"><span class="string">// 响应</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-3-同步与异步"><a href="#3-3-同步与异步" class="headerlink" title="3.3. 同步与异步"></a>3.3. 同步与异步</h3><p>​    xhr.open() 方法第三个参数要求传入的是一个 bool 值，其作用就是设置此次请求是否采用异步方式执行，默认为 true ，如果需要同步执行可以通过传递 false 实现：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">console.log(<span class="string">'before ajax'</span>)</span><br><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line"><span class="comment">// 默认第三个参数为 true 意味着采用异步方式执行</span></span><br><span class="line">xhr.open(<span class="string">'GET'</span>, <span class="string">'./time.php'</span>, <span class="keyword">true</span>)</span><br><span class="line">xhr.send(<span class="keyword">null</span>)</span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (this.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">		<span class="comment">// 这里的代码最后执行</span></span><br><span class="line">		console.log(<span class="string">'request done'</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(<span class="string">'after ajax'</span>);</span><br></pre></td></tr></table></figure>
+<p>​    如果采用同步方式执行，则代码会卡死在 xhr.send() 这一步：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">console.log(<span class="string">'before ajax'</span>)</span><br><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line"><span class="comment">// 同步方式</span></span><br><span class="line">xhr.open(<span class="string">'GET'</span>, <span class="string">'./time.php'</span>, <span class="keyword">false</span>)</span><br><span class="line"><span class="comment">// 同步方式 执行需要 先注册事件再调用 send，否则 readystatechange 无法触发</span></span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (this.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">		<span class="comment">// 这里的代码最后执行</span></span><br><span class="line">		console.log(<span class="string">'request done'</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">xhr.send(<span class="keyword">null</span>)</span><br><span class="line">console.log(<span class="string">'after ajax'</span>)</span><br><span class="line">    </span><br><span class="line"><span class="comment">//如果是同步请求，一定在发送请求 send() 之前注册 readystatechange</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-4-响应数据格式"><a href="#3-4-响应数据格式" class="headerlink" title="3.4. 响应数据格式"></a>3.4. 响应数据格式</h3><p>​    提问：如果希望服务端返回一个复杂数据，该如何处理？<br>    关心的问题就是服务端发出何种格式的数据，这种格式如何在客户端用 JavaScript 解析。</p>
+<h4 id="3-4-1-XML介绍"><a href="#3-4-1-XML介绍" class="headerlink" title="3.4.1. XML介绍"></a>3.4.1. XML介绍</h4><p>​    XML是一种数据格式，xml文件以xml后缀名结尾。xml文件需要使用xml解析器去解析。浏览器内置了xml解析器。(XML这种数据格式目前使用没有JSON多)</p>
+<p>​    XML的组成：标签、属性、注释、文档声明</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.XML标签</span></span><br><span class="line">&lt;student&gt;AA&lt;<span class="regexp">/student&gt;  开始标签  标签体内容  结束标签</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">1）&lt;student/</span>&gt; 或 &lt;student&gt;<span class="xml"><span class="tag">&lt;/<span class="name">student</span>&gt;</span></span> 空标签。没有标签体内容</span><br><span class="line"><span class="number">2</span>）xml标签名称区分大小写。</span><br><span class="line"><span class="number">3</span>）xml标签一定要正确配对。</span><br><span class="line"><span class="number">4</span>）xml标签名中间不能使用空格</span><br><span class="line"><span class="number">5</span>）xml标签名不能以数字开头</span><br><span class="line"><span class="number">6</span>）注意： 在一个xml文档中，有且仅有一个根标签</span><br><span class="line"></span><br><span class="line"><span class="comment">//2.属性</span></span><br><span class="line">&lt;student name=<span class="string">"eric"</span>&gt;student&lt;<span class="regexp">/student&gt;</span></span><br><span class="line"><span class="regexp">1）属性值必须以引号包含，可以是单引号也可以双引号，但是不能单双引号混用！！！</span></span><br><span class="line"><span class="regexp">2）一个标签内可以有多个属性，但不能出现重复的属性名！！！</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/3.注释</span></span><br><span class="line"><span class="regexp">  &lt;!--  xml注释 --&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/4.文档声明</span></span><br><span class="line"><span class="regexp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="regexp">1) version: xml的版本号</span></span><br><span class="line"><span class="regexp">2) encoding： 解析xml文件时查询的码表（解码过程时查询的码表）</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用xml设计一个通讯录</span></span><br><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</span><br><span class="line">&lt;contact&gt;</span><br><span class="line">	&lt;person id=<span class="string">"100"</span>&gt;</span><br><span class="line">		 &lt;name&gt;张三&lt;<span class="regexp">/name&gt;</span></span><br><span class="line"><span class="regexp">		 &lt;age&gt;18&lt;/</span>age&gt;</span><br><span class="line">		 &lt;phone&gt;<span class="number">12345678</span>&lt;<span class="regexp">/phone&gt;</span></span><br><span class="line"><span class="regexp">		 &lt;email&gt;12453@qq.com&lt;/</span>email&gt;</span><br><span class="line">	&lt;<span class="regexp">/person&gt;</span></span><br><span class="line"><span class="regexp">	&lt;person id="101"&gt;</span></span><br><span class="line"><span class="regexp">		 &lt;name&gt;李四&lt;/</span>name&gt;</span><br><span class="line">		 &lt;age&gt;<span class="number">20</span>&lt;<span class="regexp">/age&gt;</span></span><br><span class="line"><span class="regexp">		 &lt;phone&gt;22345678&lt;/</span>phone&gt;</span><br><span class="line">		 &lt;email&gt;<span class="number">34453</span>@qq.com&lt;<span class="regexp">/email&gt;</span></span><br><span class="line"><span class="regexp">	&lt;/</span>person&gt;</span><br><span class="line">&lt;<span class="regexp">/contact&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-4-2-返回XML"><a href="#3-4-2-返回XML" class="headerlink" title="3.4.2 返回XML"></a>3.4.2 返回XML</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	<span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">	xhr.open(<span class="string">'GET'</span>, <span class="string">'xml.php'</span>)</span><br><span class="line">	xhr.send()</span><br><span class="line">	xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    	<span class="keyword">if</span> (<span class="keyword">this</span>.readyState !== <span class="number">4</span>) <span class="keyword">return</span></span><br><span class="line">        <span class="comment">// this.responseXML 专门用于获取服务端返回的 XML 数据，操作方式就是通过 DOM 的方式操作</span></span><br><span class="line">        <span class="comment">// 但是需要服务端响应头中的 Content-Type 必须是 application/xml</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.responseXML.documentElement.children[<span class="number">0</span>].innerHTML)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.responseXML.documentElement.getElementsByTagName(<span class="string">'name'</span>)[<span class="number">0</span>])</span><br><span class="line">    &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">  </span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/xml.php</span></span><br><span class="line"><span class="regexp">&lt;?php</span></span><br><span class="line"><span class="regexp">header('Content-Type: application/</span>xml<span class="string">');</span></span><br><span class="line"><span class="string">?&gt;</span></span><br><span class="line"><span class="string">&lt;?xml version="1.1" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="string">&lt;person&gt;</span></span><br><span class="line"><span class="string">    &lt;name&gt;羊杨&lt;/name&gt;</span></span><br><span class="line"><span class="string">	&lt;age&gt;16&lt;/age&gt;</span></span><br><span class="line"><span class="string">	&lt;gender&gt;男&lt;/gender&gt;</span></span><br><span class="line"><span class="string">&lt;/person&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-4-3-返回JSON"><a href="#3-4-3-返回JSON" class="headerlink" title="3.4.3.返回JSON"></a>3.4.3.返回JSON</h4><p>​    JSON是一种数据格式，类似于 JavaScript 字面量方式<br>    服务端采用 JSON 格式返回数据，客户端按照 JSON 格式解析数据。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;table&gt;</span><br><span class="line">    &lt;tbody id=<span class="string">"content"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span></span><br><span class="line">  &lt;<span class="regexp">/table&gt;</span></span><br><span class="line"><span class="regexp">  &lt;script&gt;</span></span><br><span class="line"><span class="regexp">    var xhr = new XMLHttpRequest()</span></span><br><span class="line"><span class="regexp">    xhr.open('GET', 'test.php')</span></span><br><span class="line"><span class="regexp">    xhr.send()</span></span><br><span class="line"><span class="regexp">    xhr.onreadystatechange = function () &#123;</span></span><br><span class="line"><span class="regexp">      if (this.readyState !== 4) return</span></span><br><span class="line"><span class="regexp">      var res = JSON.parse(this.responseText)</span></span><br><span class="line"><span class="regexp">      /</span><span class="regexp">/ res =&gt; 服务端返回的数据</span></span><br><span class="line"><span class="regexp">      var data = res.data</span></span><br><span class="line"><span class="regexp">      for (var i = 0; i &lt; data.length; i++) &#123;</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 先创建行</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 再创建列</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 再将列添加到行</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 再将行添加到tbody</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ console.log(data[i])</span></span><br><span class="line"><span class="regexp">        var tr = document.createElement('tr')</span></span><br><span class="line"><span class="regexp">        tr.innerHTML = '&lt;td&gt;' + data[i].id + '&lt;/</span>td&gt;<span class="xml"><span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><span class="string">'</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  &lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;/body&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;?php</span></span><br><span class="line"><span class="string">header('</span>Content-Type: application/json<span class="string">');</span></span><br><span class="line"><span class="string">?&gt;</span></span><br><span class="line"><span class="string">&#123;</span></span><br><span class="line"><span class="string">	"success": true,</span></span><br><span class="line"><span class="string">	"data": [&#123;</span></span><br><span class="line"><span class="string">		"0": "7",</span></span><br><span class="line"><span class="string">		"id": "7",</span></span><br><span class="line"><span class="string">		"1": "哈哈",</span></span><br><span class="line"><span class="string">		"author": "哈哈",</span></span><br><span class="line"><span class="string">		"2": "hh@gmail.com",</span></span><br><span class="line"><span class="string">		"email": "hh@gmail.com",</span></span><br><span class="line"><span class="string">		"3": "2017-07-22 09:10:00",</span></span><br><span class="line"><span class="string">		"created": "2017-07-22 09:10:00",</span></span><br><span class="line"><span class="string">		"4": "一针见血",</span></span><br><span class="line"><span class="string">		"content": "一针见血",</span></span><br><span class="line"><span class="string">		"5": "approved",</span></span><br><span class="line"><span class="string">		"status": "approved",</span></span><br><span class="line"><span class="string">		"6": "1",</span></span><br><span class="line"><span class="string">		"post_id": "1",</span></span><br><span class="line"><span class="string">		"7": null,</span></span><br><span class="line"><span class="string">		"parent_id": null,</span></span><br><span class="line"><span class="string">		"8": "世界，你好",</span></span><br><span class="line"><span class="string">		"post_title": "世界，你好"</span></span><br><span class="line"><span class="string">	&#125;, &#123;</span></span><br><span class="line"><span class="string">		"0": "6",</span></span><br><span class="line"><span class="string">		"id": "6",</span></span><br><span class="line"><span class="string">		"1": "小右",</span></span><br><span class="line"><span class="string">		"author": "小右",</span></span><br><span class="line"><span class="string">		"2": "www@gmail.com",</span></span><br><span class="line"><span class="string">		"email": "www@gmail.com",</span></span><br><span class="line"><span class="string">		"3": "2017-07-11 22:22:00",</span></span><br><span class="line"><span class="string">		"created": "2017-07-11 22:22:00",</span></span><br><span class="line"><span class="string">		"4": "I am fine thank you and you?",</span></span><br><span class="line"><span class="string">		"content": "I am fine thank you and you?",</span></span><br><span class="line"><span class="string">		"5": "approved",</span></span><br><span class="line"><span class="string">		"status": "approved",</span></span><br><span class="line"><span class="string">		"6": "1",</span></span><br><span class="line"><span class="string">		"post_id": "1",</span></span><br><span class="line"><span class="string">		"7": "5",</span></span><br><span class="line"><span class="string">		"parent_id": "5",</span></span><br><span class="line"><span class="string">		"8": "世界，你好",</span></span><br><span class="line"><span class="string">		"post_title": "世界，你好"</span></span><br><span class="line"><span class="string">	&#125;, &#123;</span></span><br><span class="line"><span class="string">		"0": "4",</span></span><br><span class="line"><span class="string">		"id": "4",</span></span><br><span class="line"><span class="string">		"1": "汪磊",</span></span><br><span class="line"><span class="string">		"author": "汪磊",</span></span><br><span class="line"><span class="string">		"2": "www@gmail.com",</span></span><br><span class="line"><span class="string">		"email": "www@gmail.com",</span></span><br><span class="line"><span class="string">		"3": "2017-07-09 22:22:00",</span></span><br><span class="line"><span class="string">		"created": "2017-07-09 22:22:00",</span></span><br><span class="line"><span class="string">		"4": "不好",</span></span><br><span class="line"><span class="string">		"content": "不好",</span></span><br><span class="line"><span class="string">		"5": "approved",</span></span><br><span class="line"><span class="string">		"status": "approved",</span></span><br><span class="line"><span class="string">		"6": "1",</span></span><br><span class="line"><span class="string">		"post_id": "1",</span></span><br><span class="line"><span class="string">		"7": "3",</span></span><br><span class="line"><span class="string">		"parent_id": "3",</span></span><br><span class="line"><span class="string">		"8": "世界，你好",</span></span><br><span class="line"><span class="string">		"post_title": "世界，你好"</span></span><br><span class="line"><span class="string">	&#125;],</span></span><br><span class="line"><span class="string">	"total_count": 3</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/ajax/">ajax</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2018/03/22/ajax的初体验/" data-title="ajaxd的初体验 | Hexo" data-tsina class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2018/03/18/CSS3中的伸缩布局/" title="CSS3中的伸缩布局">
+ <strong>下一篇：</strong><br> 
+ <span>CSS3中的伸缩布局
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-AJAX概述"><span class="toc-number">1.</span> <span class="toc-text">1.AJAX概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-快速上手"><span class="toc-number">2.</span> <span class="toc-text">2.快速上手</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Ajax核心概念"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 Ajax核心概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-快速使用"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 快速使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-readyState-状态描述说明"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 readyState 状态描述说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-时间轴"><span class="toc-number">2.4.</span> <span class="toc-text">2.4. 时间轴</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-遵循-HTTP"><span class="toc-number">2.5.</span> <span class="toc-text">2.5. 遵循 HTTP</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-具体用法"><span class="toc-number">3.</span> <span class="toc-text">3.具体用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-GET-请求返回用户数据"><span class="toc-number">3.1.</span> <span class="toc-text">3.1. GET 请求返回用户数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-POST-请求登录案例"><span class="toc-number">3.2.</span> <span class="toc-text">3.2. POST 请求登录案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-同步与异步"><span class="toc-number">3.3.</span> <span class="toc-text">3.3. 同步与异步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-响应数据格式"><span class="toc-number">3.4.</span> <span class="toc-text">3.4. 响应数据格式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-1-XML介绍"><span class="toc-number">3.4.1.</span> <span class="toc-text">3.4.1. XML介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-2-返回XML"><span class="toc-number">3.4.2.</span> <span class="toc-text">3.4.2 返回XML</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-3-返回JSON"><span class="toc-number">3.4.3.</span> <span class="toc-text">3.4.3.返回JSON</span></a></li></ol></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CSS3/" title="CSS3">CSS3<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML-5/" title="HTML 5">HTML 5<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ajax/" title="ajax">ajax<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self" frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer">
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Larry Page in Google. <br>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font">
+		
+		<a href="http://weibo.com/2176287895" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2019 
+		
+		<a href="/about" target="_blank" title="John Doe">John Doe</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
